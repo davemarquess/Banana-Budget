@@ -1,34 +1,38 @@
 {
-  "name": "simple_webpack_boilerplate",
+  "name": "currency_challenge",
   "version": "1.0.0",
-  "description": "A ready to use simple webpack boilerplate",
+  "description": "currency_challenge",
   "main": "src/index.js",
   "scripts": {
     "start": "webpack-dev-server --mode development --open",
-    "build": "webpack --mode production"
+    "build": "webpack --mode production --json > optimizedstats.json",
+    "stats": "webpack --env production --profile --json > stats.json"
   },
-  "author": "pinglinh",
+  "author": "dave",
   "license": "ISC",
   "devDependencies": {
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.5",
+    "babel-plugin-lodash": "^3.3.4",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "css-loader": "^1.0.0",
     "html-webpack-plugin": "^3.2.0",
+    "lodash-webpack-plugin": "^0.11.5",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.0",
+    "uglifyjs-webpack-plugin": "^2.1.1",
     "webpack": "^4.19.1",
+    "webpack-bundle-analyzer": "^3.0.3",
     "webpack-cli": "^3.1.1",
     "webpack-dev-server": "^3.1.8"
   },
   "dependencies": {
     "express": "^4.16.4",
-    "lodash": "^4.17.11",
+    "lodash-es": "^4.17.11",
     "moment": "^2.23.0",
     "node-sass": "^4.11.0",
     "react": "^16.5.2",
-    "react-dom": "^16.5.2",
-    "react-router-dom": "^4.3.1"
+    "react-dom": "^16.5.2"
   }
 }

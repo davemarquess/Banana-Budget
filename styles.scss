@@ -1,31 +1,35 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat|Oswald|Roboto|Raleway|Cabin|Nobile|Electrolize|Exo+2|Yantramanav|Ubunto+Mono|Quantico|Anton');
+
+$heading-size: 84px;
+
 body {
-  background-color: rgb(92, 200, 208);
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+  background: #f7f459; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #f7f459, #ffffff); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #f7f459, #f1ffc0); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  // background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
 }
 
-.buttonContainer {
+.headingCard {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+  // align-items: stretch;
+  background-color: black;
+  // border: 1px solid black;
+  margin: 0;
 }
-
-.buttonLinks {
+.heading {
   display: flex;
-  list-style-type: none;
-  justify-content: flex-start;
-  border: 1px solid black;
-  border-radius: 5%;
-  padding: 10px;
-  background: black;
-  color: white;
+  justify-content: center;
+  font-family: 'Montserrat';
+  font-size: $heading-size;
+  background: #f7f459; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #f7f459, #ffffff); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #f7f459, #f3f5bf); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  // background: -webkit-linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  padding: 0;
+  margin: 10px 0;
 }
-
-.buttonLinks:hover {
-  background-color: rgb(23, 81, 85);
-}
-
-.linkText {
-  color: rgba(255, 255, 255, 0.619);
-  text-decoration: none;
-}
-
- 

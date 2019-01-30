@@ -2,6 +2,6 @@
 /dist
 package-lock.json
 build/
+yarn.lock
 
-
-.gitignore package.json src/index.html src/index.js webpack.config.js api.js src/components/
+.gitignore

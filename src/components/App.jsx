@@ -1,12 +1,9 @@
 import React from 'react';
-import Header from './Header.jsx';
-import Main from './Main.jsx';
-import '../../styles.scss'
+import '../../styles.scss';
 
 const App = () => (
-  <div>
-    <Header />
-    <Main />
+  <div className="headingCard">
+    <h1 className="heading">🍌💲 Bob's Banana Budget 💲🍌</h1>
   </div>
 )
 
