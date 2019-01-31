@@ -1,5 +1,7 @@
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const path = require('path');
+const CleanWebpackPlugin = require("clean-webpack-plugin");
+
 
 const htmlWebpackPlugin = new HtmlWebPackPlugin({
   template: "./src/index.html",
@@ -8,7 +10,7 @@ const htmlWebpackPlugin = new HtmlWebPackPlugin({
 
 module.exports = {
   mode: 'development',
-  entry: './src/index.js',
+  entry: ['babel-polyfill', './src/index.js'],
   output: {
     path: path.resolve(__dirname, 'build'),
     filename: 'webpack-bundle.js'
@@ -32,5 +34,12 @@ module.exports = {
       }
     ]
   },
-  plugins: [htmlWebpackPlugin]
+  devServer: {
+    port: 8080,
+    open: true,
+    proxy: {
+      "/api": "http://localhost:3000"
+    }
+  },
+  plugins: [new CleanWebpackPlugin(['build']), htmlWebpackPlugin]
 };
