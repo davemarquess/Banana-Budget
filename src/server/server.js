@@ -26,10 +26,13 @@ mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true },
 
 app.use(express.static(path.join(__dirname, '../../build')));
 
+bananaRouter.post('/', bananaController.postOrder, (req, res) => {
+  return res.status(200).json(
+    res.locals.bananaOrder
+  );
+});
+
 app.use('/bananas', bananaRouter);
-
-// app.use(express.static("dist"));
-
 
 // run server w/ port 8080
 app.listen(PORT, (err) => {

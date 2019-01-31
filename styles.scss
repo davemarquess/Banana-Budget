@@ -55,6 +55,7 @@ body {
   margin: 20px;
   font-family: "Montserrat";
   width: 31%;
+  // width: 61%;
   // height: 80%;
   border-radius: 4px;
   box-shadow: $box-shadow;
@@ -68,7 +69,8 @@ body {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  height: 77vh;
+  // height: 77vh;
+  height: 62vh;
   margin-top: 20px;
 }
 
@@ -133,4 +135,8 @@ textarea:focus, input:focus{
   background-color: rgb(250, 254, 178);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+.formHeading {
+  margin-top: 10px;
 }

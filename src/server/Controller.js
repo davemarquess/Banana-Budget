@@ -2,14 +2,16 @@ const BananaOrder = require('./Model');
 
 const bananaController = {};
 
-bananaController.postTask = (req, res, next) => {
-  const { item } = req.body;
-  const newItem = new BananaOrder({ item });
-  newItem.save((err, item) => {
-    if (err) return res.json({ error: err });
-    res.locals.item = item.item;
-    res.locals.id = item._id;
-    next();
+bananaController.postOrder = (req, res, next) => {
+  const { dateString, numberOfDays } = req.body;
+  const newBananaOrder = new BananaOrder({ dateString, numberOfDays });
+  BananaOrder.create(newBananaOrder, (err, bananaOrder) => {
+    if (err) {
+      return res.json({ error: err });
+    } else {
+      res.locals.bananaOrder = bananaOrder;
+      next();
+    }
   });
 };
 
