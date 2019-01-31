@@ -3,5 +3,4 @@
 package-lock.json
 build/
 yarn.lock
-
-.gitignore
+optimizedstats.json

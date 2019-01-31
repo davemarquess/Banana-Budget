@@ -1,6 +1,17 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat|Oswald|Roboto|Raleway|Cabin|Nobile|Electrolize|Exo+2|Yantramanav|Ubunto+Mono|Quantico|Anton');
 
 $heading-size: 84px;
+$bg-color: rgb(242, 242, 242);
+$background-color: rgb(237, 236, 236);
+$box-shadow: 0px 3px 22px 2px darken($bg-color, 13%);
+$text-black: rgb(48, 48, 48);
+$beforeNavHover: rgba(255, 255, 255, 0.7);
+$afterNavHover: rgba(237, 237, 237, 0.9);
+
+@keyframes onHoverNavItem {
+  0%   { color: $beforeNavHover; }
+  100% { color: white; }
+}
 
 body {
   background: #f7f459; /* fallback for old browsers */
@@ -14,9 +25,7 @@ body {
 .headingCard {
   display: flex;
   justify-content: center;
-  // align-items: stretch;
-  background-color: black;
-  // border: 1px solid black;
+  background-color: rgb(33, 33, 33);
   margin: 0;
 }
 .heading {
@@ -27,9 +36,101 @@ body {
   background: #f7f459; /* fallback for old browsers */
   background: -webkit-linear-gradient(to right, #f7f459, #ffffff); /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to right, #f7f459, #f3f5bf); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  // background: -webkit-linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  padding: 0;
+  padding: 10px 0;
   margin: 10px 0;
+}
+
+@keyframes whiteCardFadeIn {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.whiteCard {
+  display: flex;
+  justify-content: center;
+  background-color: $background-color;
+  padding: 20px;
+  margin: 20px;
+  font-family: "Montserrat";
+  width: 31%;
+  // height: 80%;
+  border-radius: 4px;
+  box-shadow: $box-shadow;
+  animation: whiteCardFadeIn 1s;
+  color: $text-black;
+  font-size: 44px;
+  flex-wrap: wrap;
+}
+
+.cardContainer {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  height: 77vh;
+  margin-top: 20px;
+}
+
+.SearchMainContainer{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	padding:20px;
+	// border: $testing-border;
+}
+
+.SearchContainer{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	font-size: 30px;
+	// color: $Title-color;
+}
+
+.formText {
+  font-size: 20px;
+  display: block;
+  margin: 35px 0 -5px 0;
+}
+
+.inputBoxes {
+  width: 90%;
+  padding: 10px;
+}
+
+input {
+  font-size: 15px;
+}
+
+.buttonLinks {
+  margin-top: 30px;
+  display: flex;
+  list-style-type: none;
+  justify-content: flex-start;
+  // border: 1px solid black;
+  border-radius: 5%;
+  padding: 10px;
+  background: darken($background-color, 10%);
+  // color: white;
+  color: $beforeNavHover;
+  font-size: 18px;
+}
+
+.buttonLinks:hover {
+  background-color: darken($background-color, 20%);
+  animation: onHoverNavItem 0.1s;
+  color: white;
+  box-shadow: 0px 3px 22px 2px darken($bg-color, 3%);
+  cursor: pointer;
+}
+
+textarea:focus, input:focus{
+    outline: none;
+}
+
+.banana {
+  background-color: rgb(250, 254, 178);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
