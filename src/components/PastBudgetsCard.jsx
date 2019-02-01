@@ -38,7 +38,7 @@ class PastBudgetsCard extends React.Component {
             <div className="formText2">
               <div className="budgetDataText">Start Date: <span className="yellowDataText"> {budgetObj.startDate}</span></div>
               <div className="budgetDataText">Number Of Days: <span className="yellowDataText"> {budgetObj.numberOfDays}</span></div>
-              <div>Total Cost: <span className="yellowDataText"> {budgetObj.startDate}</span></div>
+              <div>Total Cost: <span className="yellowDataText"> {budgetObj.totalCost}</span></div>
             </div>
           </div>
         ))}
