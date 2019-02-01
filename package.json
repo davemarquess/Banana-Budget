@@ -35,7 +35,7 @@
     "dotenv": "^6.2.0",
     "express": "^4.16.4",
     "lodash-es": "^4.17.11",
-    "moment": "^2.23.0",
+    "moment": "^2.24.0",
     "mongoose": "^5.4.8",
     "node-sass": "^4.11.0",
     "nodemon": "^1.18.9",

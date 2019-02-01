@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-class Card extends React.Component {
+class FormCard extends React.Component {
   constructor(props) {
     super(props);
   }
@@ -46,4 +46,4 @@ class Card extends React.Component {
   }
 }
 
-export default Card;
+export default FormCard;
