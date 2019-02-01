@@ -6,6 +6,17 @@ class FormCard extends React.Component {
     super(props);
   }
 
+  // TODO: finish regex functionality to reject incorrectly formatted form inputs
+  checkValidityThenSave() {
+    isFormatCorrect();
+    // helper function to check if user entered date & number in correct format
+    function isFormatCorrect() {
+      if (!/\d{2}\/{1}\d{2}\/{1}\d{4}/g.test(this.props.date_text)) {
+        console.log('please make sure date is entered MM/DD/YYYY!')
+      }
+    }
+  }
+
   render() {
     return (
       <div className="whiteCard">
