@@ -3,7 +3,7 @@
 
 Banana Budget is a tool that helps Bob calculate his banana budget. 
 
-![](ezgif.com-video-to-gif.gif)
+![](images/Home.png)
 
 ## Installation
 
@@ -18,3 +18,9 @@ npm install
 npm run server
 npm run start
 ```
+
+##
+![](images/PastBudgets.png)
+
+##
+![](images/TotalCost.png)
