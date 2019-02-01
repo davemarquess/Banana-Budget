@@ -11,6 +11,10 @@ const bananaSchema = new Schema({
   numberOfDays: {
     type: Number,
     required: true
+  },
+  totalCost: {
+    type: String,
+    required: true
   }
 }, {
     timestamps: true

@@ -7,7 +7,7 @@ const bodyParser = require('body-parser');
 require('dotenv').config();
 
 const cors = require('cors');
-// const PORT = 3333;
+
 const PORT = 3000;
 app.use(cors());
 
@@ -30,11 +30,10 @@ mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true },
 app.use(express.static(path.join(__dirname, '../../build')));
 
 
-
+// post banana budget document to database
 bananaRouter.post('/', bananaController.postOrder, (req, res) => {
   res.status(200).json(res.locals.bananaOrder);
 });
-
 
 app.use('/bananas', bananaRouter);
 

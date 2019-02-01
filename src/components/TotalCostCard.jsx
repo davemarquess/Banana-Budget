@@ -5,6 +5,26 @@ class TotalCostCard extends React.Component {
     super(props)
   }
 
+  componentDidMount() {
+    const { date_text, numberOfDays_text, totalCost } = this.props;
+    fetch('http://localhost:3000/bananas',
+      {
+        method: 'POST',
+        mode: "cors",
+        headers: {
+          "Content-Type": "application/json",
+          'Access-Control-Allow-Origin': '*',
+        },
+        body: JSON.stringify({
+          startDate: date_text,
+          numberOfDays: numberOfDays_text,
+          totalCost: totalCost
+        })
+      })
+      .then((res) => res.json())
+      .then(res => console.log(res))
+  }
+
   render() {
     return (
       <div className="whiteCard">

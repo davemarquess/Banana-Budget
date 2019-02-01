@@ -55,8 +55,6 @@ body {
   margin: 30px 20px 20px 20px;
   font-family: "Montserrat";
   width: 31%;
-  // width: 61%;
-  // height: 80%;
   border-radius: 4px;
   box-shadow: $box-shadow;
   animation: whiteCardFadeIn 1s;
@@ -73,7 +71,6 @@ body {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  // height: 62vh;
   height: 100%;
   margin-top: 20px;
 }
@@ -83,7 +80,6 @@ body {
 	flex-direction: row;
 	justify-content: center;
 	padding:20px;
-	// border: $testing-border;
 }
 
 .SearchContainer{
@@ -91,13 +87,21 @@ body {
 	flex-direction: column;
 	justify-content: center;
 	font-size: 30px;
-	// color: $Title-color;
 }
 
 .formText {
   font-size: 20px;
   display: block;
   margin: 35px 0 -5px 0;
+}
+
+.formDescriptionText {
+  font-size: 18px;
+  display: flex;
+  margin: 15px 0 55px 0;
+  width: 335px;
+  color: lighten($text-black, 30%);
+  justify-content: space-between
 }
 
 .inputBoxes {
@@ -115,11 +119,9 @@ input {
   display: flex;
   list-style-type: none;
   justify-content: flex-start;
-  // border: 1px solid black;
   border-radius: 5%;
   padding: 10px;
   background: darken($background-color, 10%);
-  // color: white;
   color: $beforeNavHover;
   font-size: 18px;
 }

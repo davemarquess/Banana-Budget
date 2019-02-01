@@ -33,24 +33,17 @@ class App extends React.Component {
     const dateStringNew = `${dateArr.slice(6).join('')}-${dateArr.slice(0, 2).join('')}-${dateArr.slice(3, 5).join('')}`;
 
     const dayOfWeek = moment(new Date(dateStringNew)).day(); // weekday number --> 01 === Monday
-    // console.log('dayOfWeek: ', dayOfWeek);
-
     const dayOfMonth = Number(dateArr.slice(3, 5).join(''));
-
     const month = Number(dateArr.slice(0, 2).join('')) - 1; // month number --> 00 === January
 
     let monthCopy = month;
-
     const daysInMonth = this.state.calendar[month]; // number of days in month
-
     let result = 0;
 
     for (let i = 0, x = dayOfMonth, d = dayOfWeek; i < numOfDays; i += 1) {
       isItWeekDay(d) ? resultMoneyAdd(x) : '';
       d = handleDay(d);
       x = changeMonth(x);
-      // console.log('x: ', x);
-      // console.log('monthCopy: ', monthCopy);
     }
 
     // helper function for incrementing month and resetting day of month
@@ -58,19 +51,19 @@ class App extends React.Component {
       if (monthCopy === 0 || monthCopy === 2 || monthCopy === 4 ||
         monthCopy === 6 || monthCopy === 7 || monthCopy === 9 || monthCopy === 11) {
         if (x === 31) {
-          x = 0;
+          x = 1;
           monthCopy += 1;
         } else {
           x += 1;
         }
       } else if (monthCopy === 1 && x === 28) {
-        x = 0;
+        x = 1;
         monthCopy += 1;
       } else if (monthCopy === 1 && x !== 28) {
         x += 1;
       } else if (monthCopy === 3 || monthCopy === 5 || monthCopy === 8 || monthCopy === 10) {
         if (x === 30) {
-          x = 0;
+          x = 1;
           monthCopy += 1;
         } else {
           x += 1;
@@ -104,7 +97,7 @@ class App extends React.Component {
       if (x > 28 && x <= 31) result += 0.25;
       // console.log('result: ', result)
     }
-    console.log('result: ', result)
+
     this.setState({ totalCost: `$${result.toFixed(2)}` });
   }
 
@@ -137,11 +130,9 @@ class App extends React.Component {
     });
 
     event.preventDefault();
-    // console.log('running!')
-    const { date_text, numberOfDays_text } = this.state;
-    // console.log('numberOfDays_text: ', numberOfDays_text);
-    // console.log('date_text: ', date_text);
-    this.handleReset();
+    const { date_text, numberOfDays_text, totalCost } = this.state;
+    // this.handleReset();
+
     // fetch('http://localhost:3000/bananas',
     //   {
     //     method: 'POST',
@@ -152,7 +143,8 @@ class App extends React.Component {
     //     },
     //     body: JSON.stringify({
     //       startDate: date_text,
-    //       numberOfDays: numberOfDays_text
+    //       numberOfDays: numberOfDays_text,
+    //       totalCost: totalCost
     //     })
     //   })
     //   .then((res) => res.json())
@@ -181,6 +173,8 @@ class App extends React.Component {
         {this.state.showTotalCost && <div className="cardContainer">
           <TotalCostCard
             totalCost={this.state.totalCost}
+            date_text={this.state.date_text}
+            numberOfDays_text={this.state.numberOfDays_text}
           />
         </div>}
 

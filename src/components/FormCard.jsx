@@ -15,6 +15,7 @@ class FormCard extends React.Component {
               <div className="formHeading"><span className="banana">🍌</span> Welcome <span className="banana">🍌</span></div>
 
               <label>
+                <div className="formDescriptionText">Tell us about your banana budget</div>
                 <span className="formText">Start Date:  </span>
                 <input
                   id=""
