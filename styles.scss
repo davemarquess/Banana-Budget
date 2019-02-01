@@ -69,10 +69,9 @@ body {
 
 .whiteCardColumn {
   display: flex;
-  // flex-direction: column;
   justify-content: center;
   background-color: $background-color;
-  padding: 20px;
+  padding: 30px 20px 20px;
   margin: 30px 20px 20px 20px;
   font-family: "Montserrat";
   width: 31%;
