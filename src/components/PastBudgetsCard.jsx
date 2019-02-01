@@ -32,6 +32,7 @@ class PastBudgetsCard extends React.Component {
               </label>
             </div>
           </div>}
+        {this.state.hideFetchButton && <div className="totalCostHeading">Bob's Budgets</div>}
         {this.state.budgetsArray.map((budgetObj, index) => (
           <div className="whiteCardData" key={index + 'budget'}>
             <div className="formText2">
