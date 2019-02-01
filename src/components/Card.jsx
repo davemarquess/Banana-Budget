@@ -3,8 +3,9 @@ import ReactDOM from 'react-dom';
 
 class Card extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
   }
+
   render() {
     return (
       <div className="whiteCard">
@@ -14,8 +15,9 @@ class Card extends React.Component {
               <div className="formHeading"><span className="banana">🍌</span> Welcome <span className="banana">🍌</span></div>
 
               <label>
-                <span className="formText">Date:  </span>
+                <span className="formText">Start Date:  </span>
                 <input
+                  id=""
                   className="inputBoxes"
                   type="text"
                   placeholder="Enter Date: MM/DD/YYYY"
@@ -36,7 +38,7 @@ class Card extends React.Component {
               </label>
 
             </div>
-            <input className="buttonLinks" type="submit" value="Submit" />
+            <input className="buttonLinks" type="submit" value="Submit" onClick={this.props.handleSave} />
           </div>
         </form>
       </div>

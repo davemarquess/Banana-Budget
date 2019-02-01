@@ -39,7 +39,13 @@ module.exports = {
     open: true,
     proxy: {
       "/api": "http://localhost:3000"
-    }
+    },
+    publicPath: '/',
+    setup(app) {
+      app.post('*', (req, res) => {
+        res.redirect(req.originalUrl);
+      });
+    },
   },
   plugins: [new CleanWebpackPlugin(['build']), htmlWebpackPlugin]
 };

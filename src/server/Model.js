@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const bananaSchema = new Schema({
-  dateString: {
+  startDate: {
     type: String,
     required: true
   },

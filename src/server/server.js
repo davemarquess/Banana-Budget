@@ -5,8 +5,11 @@ const mongoose = require('mongoose');
 const path = require('path');
 const bodyParser = require('body-parser');
 require('dotenv').config();
+
+const cors = require('cors');
 // const PORT = 3333;
 const PORT = 3000;
+app.use(cors());
 
 // import controller
 const bananaController = require('./Controller');
@@ -26,15 +29,16 @@ mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true },
 
 app.use(express.static(path.join(__dirname, '../../build')));
 
+
+
 bananaRouter.post('/', bananaController.postOrder, (req, res) => {
-  return res.status(200).json(
-    res.locals.bananaOrder
-  );
+  res.status(200).json(res.locals.bananaOrder);
 });
+
 
 app.use('/bananas', bananaRouter);
 
-// run server w/ port 8080
+// run server w/ port 3000
 app.listen(PORT, (err) => {
   if (err) console.log(err);
   console.log(`Listening on PORT ${PORT}`);

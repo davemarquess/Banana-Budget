@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Card from './Card.jsx';
 import '../../styles.scss';
+import { resolve } from 'path';
 
 class App extends React.Component {
   constructor() {
@@ -14,6 +15,8 @@ class App extends React.Component {
     this.handleDateChange = this.handleDateChange.bind(this);
     this.handleDaysChange = this.handleDaysChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleSave = this.handleSave.bind(this);
+    this.handleReset = this.handleReset.bind(this);
   }
 
   handleDateChange(e) {
@@ -27,6 +30,37 @@ class App extends React.Component {
   handleSubmit(e) {
     console.log('submitted!');
     e.preventDefault();
+  }
+
+  handleReset() {
+    this.setState({
+      date_text: '',
+      numberOfDays_text: ''
+    });
+  }
+
+  handleSave(event) {
+    event.preventDefault();
+    // console.log('running!')
+    const { date_text, numberOfDays_text } = this.state;
+    // console.log('numberOfDays_text: ', numberOfDays_text);
+    // console.log('date_text: ', date_text);
+    this.handleReset();
+    fetch('http://localhost:3000/bananas',
+      {
+        method: 'POST',
+        mode: "cors",
+        headers: {
+          "Content-Type": "application/json",
+          'Access-Control-Allow-Origin': '*',
+        },
+        body: JSON.stringify({
+          startDate: date_text,
+          numberOfDays: numberOfDays_text
+        })
+      })
+      .then((res) => res.json())
+      .then(res => console.log(res))
   }
 
   render() {
@@ -43,6 +77,7 @@ class App extends React.Component {
             date_text={this.state.date_text}
             handleDateChange={this.handleDateChange}
             handleDaysChange={this.handleDaysChange}
+            handleSave={this.handleSave}
             handleSubmit={this.handleSubmit}
           />
         </div>

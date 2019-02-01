@@ -3,8 +3,8 @@ const BananaOrder = require('./Model');
 const bananaController = {};
 
 bananaController.postOrder = (req, res, next) => {
-  const { dateString, numberOfDays } = req.body;
-  const newBananaOrder = new BananaOrder({ dateString, numberOfDays });
+  const { startDate, numberOfDays } = req.body;
+  const newBananaOrder = new BananaOrder({ startDate, numberOfDays });
   BananaOrder.create(newBananaOrder, (err, bananaOrder) => {
     if (err) {
       return res.json({ error: err });

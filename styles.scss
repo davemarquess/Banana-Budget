@@ -52,7 +52,7 @@ body {
   justify-content: center;
   background-color: $background-color;
   padding: 20px;
-  margin: 20px;
+  margin: 30px 20px 20px 20px;
   font-family: "Montserrat";
   width: 31%;
   // width: 61%;
@@ -65,12 +65,16 @@ body {
   flex-wrap: wrap;
 }
 
+.whiteCard:hover {
+  background-color: lighten($background-color, 1%);
+}
+
 .cardContainer {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  // height: 77vh;
-  height: 62vh;
+  // height: 62vh;
+  height: 100%;
   margin-top: 20px;
 }
 
@@ -107,6 +111,7 @@ input {
 
 .buttonLinks {
   margin-top: 30px;
+  margin-bottom: 25px;
   display: flex;
   list-style-type: none;
   justify-content: flex-start;
