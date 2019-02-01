@@ -1,7 +1,7 @@
 # Banana Budget
 
 
-Banana Budget is a tool that helps Bob calculate his banana budget
+Banana Budget is a tool that helps Bob calculate his banana budget.
 
 ![](images/Home.png)
 
@@ -24,6 +24,5 @@ npm run start
 ![](images/TotalCost.png)
 
 
-##
 
 ![](images/PastBudgets.png)
