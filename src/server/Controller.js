@@ -15,10 +15,10 @@ bananaController.postOrder = (req, res, next) => {
   });
 };
 
-bananaController.getTasks = (req, res, next) => {
-  BananaOrder.find({}, (err, items) => {
+bananaController.getBudgets = (req, res, next) => {
+  BananaOrder.find({}, (err, budgets) => {
     if (err) return res.status(400).json({ error: err });
-    res.locals.items = items;
+    res.locals.budgets = budgets;
     next();
   });
 };

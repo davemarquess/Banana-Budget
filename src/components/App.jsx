@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import FormCard from './FormCard.jsx';
 import TotalCostCard from './TotalCostCard.jsx';
+import PastBudgetsCard from './PastBudgetsCard.jsx'
 import '../../styles.scss';
 import { resolve } from 'path';
 const moment = require('moment');
@@ -131,24 +132,6 @@ class App extends React.Component {
 
     event.preventDefault();
     const { date_text, numberOfDays_text, totalCost } = this.state;
-    // this.handleReset();
-
-    // fetch('http://localhost:3000/bananas',
-    //   {
-    //     method: 'POST',
-    //     mode: "cors",
-    //     headers: {
-    //       "Content-Type": "application/json",
-    //       'Access-Control-Allow-Origin': '*',
-    //     },
-    //     body: JSON.stringify({
-    //       startDate: date_text,
-    //       numberOfDays: numberOfDays_text,
-    //       totalCost: totalCost
-    //     })
-    //   })
-    //   .then((res) => res.json())
-    //   .then(res => console.log(res))
   }
 
   render() {
@@ -176,6 +159,10 @@ class App extends React.Component {
             date_text={this.state.date_text}
             numberOfDays_text={this.state.numberOfDays_text}
           />
+        </div>}
+
+        {this.state.showTotalCost && <div className="cardContainer2">
+          <PastBudgetsCard />
         </div>}
 
       </div>

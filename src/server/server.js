@@ -35,6 +35,11 @@ bananaRouter.post('/', bananaController.postOrder, (req, res) => {
   res.status(200).json(res.locals.bananaOrder);
 });
 
+// get banana budgets from database
+bananaRouter.get('/', bananaController.getBudgets, (req, res) => {
+  res.status(200).json(res.locals.budgets);
+});
+
 app.use('/bananas', bananaRouter);
 
 // run server w/ port 3000
