@@ -4,16 +4,56 @@ import ReactDOM from 'react-dom';
 class FormCard extends React.Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      dateFormatError: '',
+      numOfDaysFormatError: ''
+    }
+
+    this.checkValidityThenSave = this.checkValidityThenSave.bind(this);
   }
 
-  // TODO: finish regex functionality to reject incorrectly formatted form inputs
-  checkValidityThenSave() {
-    isFormatCorrect();
-    // helper function to check if user entered date & number in correct format
-    function isFormatCorrect() {
-      if (!/\d{2}\/{1}\d{2}\/{1}\d{4}/g.test(this.props.date_text)) {
-        console.log('please make sure date is entered MM/DD/YYYY!')
-      }
+  // regex functionality to reject incorrectly formatted form inputs
+  checkValidityThenSave(e) {
+    let dateString = this.props.date_text;
+    let numOfDays = Number(this.props.numOfDays);
+    let isFormValid = true;
+
+    let isFormatCorrect = /\d{2}\/{1}\d{2}\/{1}\d{4}/g.test(dateString);
+    if (!isFormatCorrect) {
+      isFormValid = false;
+      this.setState({
+        dateFormatError: 'Please enter date in MM/DD/YYYY format'
+      }, () => console.log(this.state));
+    }
+
+    if (isFormatCorrect) {
+      this.setState({
+        dateFormatError: ''
+      }, () => console.log(this.state));
+    }
+
+    let isNumOfDaysANumber = !!numOfDays;
+
+    if (!isNumOfDaysANumber) {
+      isFormValid = false;
+      this.setState({
+        numOfDaysFormatError: 'Please enter a valid number'
+      }, () => console.log(this.state))
+    }
+
+    if (isNumOfDaysANumber) {
+      this.setState({
+        numOfDaysFormatError: ''
+      }, () => console.log(this.state))
+    }
+
+    if (isFormatCorrect && isNumOfDaysANumber) {
+      isFormValid = true;
+    }
+
+    if (isFormValid) {
+      this.props.handleSave(e);
     }
   }
 
@@ -27,10 +67,11 @@ class FormCard extends React.Component {
 
               <label>
                 <div className="formDescriptionText">Tell us about your banana budget</div>
-                <span className="formText">Start Date:  </span>
+
+                <span className="formCardText">Start Date:  </span>
+                {this.state.dateFormatError && <span className="errorMessageText">{this.state.dateFormatError}</span>}
                 <input
-                  id=""
-                  className="inputBoxes"
+                  className={this.state.dateFormatError ? "inputBoxesError" : "inputBoxes"}
                   type="text"
                   placeholder="Enter Date: MM/DD/YYYY"
                   value={this.props.date_text}
@@ -39,9 +80,11 @@ class FormCard extends React.Component {
               </label>
 
               <label>
-                <span className="formText">Number Of Days:  </span>
+
+                <span className="formCardText">Number Of Days:  </span>
+                {this.state.numOfDaysFormatError && <span className="errorMessageText">{this.state.numOfDaysFormatError}</span>}
                 <input
-                  className="inputBoxes"
+                  className={this.state.numOfDaysFormatError ? "inputBoxesError" : "inputBoxes"}
                   type="text"
                   placeholder='Enter number of days'
                   value={this.props.numberOfDays_text}
@@ -50,7 +93,7 @@ class FormCard extends React.Component {
               </label>
 
             </div>
-            <input className="buttonLinks" type="submit" value="Submit" onClick={this.props.handleSave} />
+            <input className="buttonLinks" type="submit" value="Submit" onClick={this.checkValidityThenSave} />
           </div>
         </form>
       </div>

@@ -82,6 +82,7 @@ class App extends React.Component {
       }
       return d;
     }
+
     // helper function to check if current day is week day
     function isItWeekDay(d) {
       if (d <= 5) {
@@ -111,7 +112,6 @@ class App extends React.Component {
   }
 
   handleSubmit(e) {
-    console.log('submitted!');
     e.preventDefault();
   }
 
@@ -146,6 +146,7 @@ class App extends React.Component {
         {this.state.showForm && <div className="cardContainer">
           <FormCard
             date_text={this.state.date_text}
+            numOfDays={this.state.numberOfDays_text}
             handleDateChange={this.handleDateChange}
             handleDaysChange={this.handleDaysChange}
             handleSave={this.handleSave}
