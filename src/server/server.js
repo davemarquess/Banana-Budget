@@ -11,6 +11,9 @@ const cors = require('cors');
 const PORT = 3000;
 app.use(cors());
 
+const uri = process.env.MONGO_URI || 'mongodb://bananaBob:banana123@ds117545.mlab.com:17545/currencychallenge';
+
+
 // import controller
 const bananaController = require('./Controller');
 const bananaRouter = express.Router();
@@ -20,7 +23,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 // connect mongoDB
-mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true },
+mongoose.connect(uri, { useNewUrlParser: true },
   (err) => {
     if (err) console.log(err);
     else console.log('Connected to the database!');
